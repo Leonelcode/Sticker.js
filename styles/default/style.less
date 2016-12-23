@@ -1,0 +1,1447 @@
+/*
+Colours configuration
+*/
+@color-background-primary: #95E5C8;
+@color-background-primary-hover: #86D5B8;
+@color-background-secondary: #E0E0E0;
+@color-background-secondary-hover: #CBCBCB;
+@color-background-error: #E595A0;
+@color-background-error-hover: #d3818c;
+@color-background-success: #95E0E5;
+@color-background-success-hover: #7cd1d6;
+
+.sticker{
+	.input
+	{
+		position:relative;
+		display:inline-block;
+		margin-right:25px;
+		vertical-align:top;
+		font-family: 'Open Sans', sens-serif;
+		font-size:12px;
+		transform: transale3d(0,0,0);
+	}
+	/*
+	Android & iOS:
+	Disable ugly click highlight
+	*/
+	.input *
+	{
+		-webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+		-webkit-tap-highlight-color: transparent;
+	}
+	.input input,
+	.input textarea
+	{
+		appearance: none;
+		border: 0;
+		font-family: 'Open Sans', sans-serif;
+		margin: 0;
+	}
+	.input input:focus,
+	.input textarea:focus
+	{
+		outline:none;
+	}
+	/***************************************
+
+	Styles for: INPUT INFO
+	Element scheme:
+
+	.input {
+		[...]
+		.inputInfo
+		[...]
+	}
+
+	***************************************/
+	.inputInfo
+	{
+		color: #9a9a9a;
+		display: block;
+		font-size: .916667em;
+		margin-top: 15px;
+	}
+	.inputInfo.hidden
+	{
+		display:none;
+	}
+
+	/***************************************
+
+	Styles for: INPUT LABEL
+	Element scheme:
+
+	.input {
+		.inputLabel
+		[...]
+	}
+
+	***************************************/
+	.inputLabel
+	{
+		color: #7d7d7d;
+		display: block;
+		float: left;
+		font-size: 1em;
+		margin-right: 10px;
+	}
+
+	/***************************************
+
+	Styles for: INPUT ICON
+	Element scheme:
+
+	.input {
+		[...]
+		.appearance {
+			.inputIcon
+		}
+		[...]
+	}
+
+	***************************************/
+	.inputIcon
+	{
+		position:absolute;
+		left:0;
+		top:0;
+		width:40px;
+		height:40px;
+		line-height: 40px;
+		font-size:15px;
+		text-align:center;
+		color:silver;
+		pointer-events:none;
+	}
+	.input.rightIcon .inputIcon
+	{
+		left:auto;
+		right:0;
+	}
+
+	/***************************************
+
+	Styles for: INPUT TIPS
+	Element scheme:
+
+	.input {
+		[...]
+		.inputTip.positionInput
+		.inputTip.positionInput.error.hidden
+		.inputTip.positionInput.success.hidden
+		[...]
+	}
+
+	***************************************/
+	.inputTip
+	{
+		background-color: @color-background-primary;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 1em;
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		transition-duration: .4s;
+		transition-property: margin, opacity;
+		white-space: pre;
+		padding: 0 20px;
+		height:30px;
+		line-height: 30px;
+		z-index:8888;
+	}
+	.inputTip::after
+	{
+		width:0;
+		height:0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		content: "";
+		position: absolute;
+	}
+	.input:hover .inputTip.hidden,
+	.inputFocus .inputTip.hidden
+	{
+		opacity:0;
+	}
+	.inputTip.error
+	{
+		background-color: @color-background-error;
+	}
+	.inputTip.success
+	{
+		background-color: @color-background-success;
+	}
+
+	/*
+	Top tips
+	*/
+	.defaultTip,
+	.toprightTip
+	{
+		bottom:100%;
+		right:0;
+		margin-bottom: 15px;
+	}
+	.topleftTip
+	{
+		bottom:100%;
+		left:0;
+		margin-bottom: 15px;
+	}
+	.topleftTip::after,
+	.toprightTip::after,
+	.defaultTip::after
+	{
+		top:100%;
+		border-top-color:@color-background-primary;
+	}
+	.toprightTip::after,
+	.defaultTip::after
+	{
+		right:10px;
+	}
+	.topleftTip::after
+	{
+		left:10px;
+	}
+	.topleftTip.error::after,
+	.toprightTip.error::after,
+	.defaultTip.error::after
+	{
+		border-top-color:@color-background-error;
+	}
+	.topleftTip.success::after,
+	.toprightTip.success::after,
+	.defaultTip.success::after
+	{
+		border-top-color:@color-background-success;
+	}
+	.input:hover .topleftTip,
+	.inputFocus .topleftTip,
+	.input:hover .toprightTip,
+	.inputFocus .toprightTip,
+	.input:hover .defaultTip,
+	.inputFocus .defaultTip
+	{
+		margin-bottom:10px;
+		opacity:1;
+	}
+
+	/*
+	Bottom tips
+	*/
+	.bottomrightTip
+	{
+		top:100%;
+		right:0;
+		margin-top: 15px;
+	}
+	.bottomleftTip
+	{
+		top:100%;
+		left:0;
+		margin-top: 15px;
+	}
+	.bottomleftTip::after,
+	.bottomrightTip::after
+	{
+		bottom:100%;
+		border-bottom-color:@color-background-primary;
+	}
+	.bottomleftTip::after
+	{
+		left:10px;
+	}
+	.bottomrightTip::after
+	{
+		right:10px;
+	}
+	.bottomleftTip.error::after,
+	.bottomrightTip.error::after
+	{
+		border-bottom-color:@color-background-error;
+	}
+	.bottomleftTip.success::after,
+	.bottomrightTip.success::after
+	{
+		border-bottom-color:@color-background-success;
+	}
+	.input:hover .bottomleftTip,
+	.inputFocus .bottomleftTip,
+	.input:hover .bottomrightTip,
+	.inputFocus .bottomrightTip
+	{
+		margin-top:10px;
+		opacity:1;
+	}
+
+	/*
+	Left tips
+	*/
+	.lefttopTip
+	{
+		right:100%;
+		top:0;
+		margin-right: 15px;
+	}
+	.leftbottomTip
+	{
+		right:100%;
+		bottom:0;
+		margin-right: 15px;
+	}
+	.lefttopTip::after,
+	.leftbottomTip::after
+	{
+		left:100%;
+		border-left-color:@color-background-primary;
+	}
+	.lefttopTip::after
+	{
+		top:10px;
+	}
+	.leftbottomTip::after
+	{
+		bottom:10px;
+	}
+	.lefttopTip.error::after,
+	.leftbottomTip.error::after
+	{
+		border-left-color:@color-background-error;
+	}
+	.lefttopTip.success::after,
+	.leftbottomTip.success::after
+	{
+		border-left-color:@color-background-success;
+	}
+	.input:hover .lefttopTip,
+	.inputFocus .lefttopTip,
+	.input:hover .leftbottomTip,
+	.inputFocus .leftbottomTip
+	{
+		margin-right:10px;
+		opacity:1;
+	}
+
+	/*
+	Right tips
+	*/
+	.righttopTip
+	{
+		left:100%;
+		top:0;
+		margin-left: 15px;
+	}
+	.rightbottomTip
+	{
+		left:100%;
+		bottom:0;
+		margin-left: 15px;
+	}
+	.righttopTip::after,
+	.rightbottomTip::after
+	{
+		right:100%;
+		border-right-color:@color-background-primary;
+	}
+	.righttopTip::after
+	{
+		top:10px;
+	}
+	.rightbottomTip::after
+	{
+		bottom:10px;
+	}
+	.righttopTip.error::after,
+	.rightbottomTip.error::after
+	{
+		border-right-color:@color-background-error;
+	}
+	.righttopTip.success::after,
+	.rightbottomTip.success::after
+	{
+		border-right-color:@color-background-success;
+	}
+	.input:hover .righttopTip,
+	.inputFocus .righttopTip,
+	.input:hover .rightbottomTip,
+	.inputFocus .rightbottomTip
+	{
+		margin-left:10px;
+		opacity:1;
+	}
+
+	/***************************************
+
+	Styles for: SWITCH
+	Element scheme:
+
+	.switchInput {
+		input
+		.switch {
+			.switchButton
+		}
+		[...]
+	}
+
+	***************************************/
+	.switch {
+		background-color: #fff;
+		border-radius: 20px;
+		box-shadow: 0 0 0 2px @color-background-secondary inset;
+		cursor: pointer;
+		display: inline-block;
+		height: 30px;
+		position: relative;
+		transition-duration: .4s;
+		transition-property: box-shadow;
+		width: 45px;
+		vertical-align: top;
+	}
+	.switch:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-secondary-hover inset;
+	}
+	.switch.active,
+	.switch.focus
+	{
+		box-shadow: 0 0 0 18px @color-background-secondary inset;
+	}
+	.switch.error
+	{
+		box-shadow: 0 0 0 2px @color-background-error inset;
+	}
+	.switch.error:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-error-hover inset;
+	}
+	.switch.error.active,
+	.switch.error.focus
+	{
+		box-shadow: 0 0 0 18px @color-background-error inset;
+	}
+	.switch.success
+	{
+		box-shadow: 0 0 0 2px @color-background-success inset;
+	}
+	.switch.success:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-success-hover inset;
+	}
+	.switch.success.active,
+	.switch.success.focus
+	{
+		box-shadow: 0 0 0 18px @color-background-success inset;
+	}
+	.switch.disabled
+	{
+		box-shadow: 0 0 0 18px @color-background-secondary inset;
+	}
+	.switchButton
+	{
+		background-color: #fff;
+		border-radius: 20px;
+		bottom: 2px;
+		box-shadow: 0 3px 3px rgba(0,0,0,0.25);
+		left: 2px;
+		position: absolute;
+		right: 17px;
+		top: 2px;
+		transition-duration: .4s;
+		transition-property: right, left;
+	}
+	.switch.active .switchButton,
+	.switch.focus .switchButton
+	{
+		right: 12px;
+	}
+	.switch.disabled .switchButton
+	{
+		box-shadow: none;
+	}
+
+	/*
+	Checked
+	*/
+	.switch.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-primary inset;
+	}
+	.switch.checked:hover
+	{
+		box-shadow: 0 0 0 18px @color-background-primary-hover inset;
+	}
+	.switch.active.checked,
+	.switch.focus.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-primary inset;
+	}
+	.switch.error.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-error inset;
+	}
+	.switch.error.checked:hover
+	{
+		box-shadow: 0 0 0 18px @color-background-error-hover inset;
+	}
+	.switch.error.active.checked,
+	.switch.error.focus.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-error inset;
+	}
+	.switch.success.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-success inset;
+	}
+	.switch.success.checked:hover
+	{
+		box-shadow: 0 0 0 18px @color-background-success-hover inset;
+	}
+	.switch.success.active.checked,
+	.switch.success.focus.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-success inset;
+	}
+	.switch.disabled.checked
+	{
+		box-shadow: 0 0 0 18px @color-background-secondary inset;
+	}
+	.switch.checked .switchButton
+	{
+		left: 17px;
+		right: 2px;
+	}
+	.switch.active.checked .switchButton,
+	.switch.focus.checked .switchButton,
+	{
+		left: 12px;
+	}
+
+	/*
+	Settings
+	*/
+	.switchInput input
+	{
+		position:absolute;
+		left:-9999px;
+	}
+	.switchInput .inputLabel
+	{
+		line-height:30px;
+	}
+
+	/***************************************
+
+	Styles for: ICONBOX
+	Element scheme:
+
+	.iconboxInput {
+		input
+		.iconbox {
+			i.icon_class
+		}
+		[...]
+	}
+
+	***************************************/
+
+	.iconbox
+	{
+		border-radius: 50%;
+		box-shadow: 0 0 0 2px @color-background-secondary inset;
+		color: @color-background-secondary;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 20px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		transition-duration: .4s;
+		transition-property: box-shadow, color;
+		width: 50px;
+		vertical-align: top;
+	}
+	.iconbox:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-secondary-hover inset;
+		color:@color-background-secondary-hover;
+	}
+	.iconbox.active,
+	.iconbox.focus
+	{
+		box-shadow: 0 0 0 25px @color-background-primary inset;
+		color:#fff;
+	}
+	.iconbox.error
+	{
+		box-shadow: 0 0 0 2px @color-background-error inset;
+		color: @color-background-secondary;
+	}
+	.iconbox.error:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-error-hover inset;
+		color: @color-background-secondary;
+	}
+	.iconbox.error.active,
+	.iconbox.error.focus
+	{
+		box-shadow: 0 0 0 25px @color-background-error inset;
+		color:#fff;
+	}
+	.iconbox.success
+	{
+		box-shadow: 0 0 0 2px @color-background-success inset;
+		color: @color-background-secondary;
+	}
+	.iconbox.success:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-success-hover inset;
+		color: @color-background-secondary;
+	}
+	.iconbox.success.active,
+	.iconbox.success.focus
+	{
+		box-shadow: 0 0 0 25px @color-background-success inset;
+		color:#fff;
+	}
+	.iconbox.disabled.active,
+	.iconbox.disabled.focus
+	{
+		box-shadow: 0 0 0 5px @color-background-secondary-hover inset;
+		color:@color-background-secondary-hover;
+	}
+
+	/*
+	Checked
+	*/
+	.iconbox.checked
+	{
+		box-shadow: 0 0 0 2px @color-background-primary inset;
+		color: @color-background-primary;
+	}
+	.iconbox.checked:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-primary-hover inset;
+		color: @color-background-primary-hover;
+	}
+	.iconbox.active.checked,
+	.iconbox.focus.checked
+	{
+		box-shadow: 0 0 0 25px @color-background-secondary inset;
+		color:#fff;
+	}
+	.iconbox.error.checked
+	{
+		box-shadow: 0 0 0 2px @color-background-error inset;
+		color: @color-background-error;
+	}
+	.iconbox.error.checked:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-error-hover inset;
+		color: @color-background-error-hover;
+	}
+	.iconbox.error.active.checked,
+	.iconbox.error.focus.checked
+	{
+		box-shadow: 0 0 0 25px @color-background-secondary inset;
+		color:#fff;
+	}
+	.iconbox.success.checked
+	{
+		box-shadow: 0 0 0 2px @color-background-success inset;
+		color: @color-background-success;
+	}
+	.iconbox.success.checked:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-success-hover inset;
+		color: @color-background-success-hover;
+	}
+	.iconbox.success.active.checked,
+	.iconbox.success.focus.checked
+	{
+		box-shadow: 0 0 0 25px @color-background-secondary inset;
+		color:#fff;
+	}
+	.iconbox.disabled.checked
+	{
+		box-shadow: 0 0 0 2px @color-background-secondary inset;
+		color:@color-background-primary;
+	}
+	.iconbox.disabled.checked:hover
+	{
+		box-shadow: 0 0 0 2px @color-background-secondary-hover inset;
+		color:@color-background-primary-hover;
+	}
+	.iconbox.disabled.active.checked,
+	.iconbox.disabled.focus.checked
+	{
+		box-shadow: 0 0 0 5px @color-background-secondary inset;
+		color:@color-background-secondary;
+	}
+
+	/*
+	Settings
+	*/
+	.iconboxInput input
+	{
+		position:absolute;
+		left:-9999px;
+	}
+	.iconboxInput .inputLabel
+	{
+		line-height:50px;
+	}
+
+
+	/***************************************
+
+	Styles for: TEXT & TEXTAREA
+	Element scheme:
+
+	.textInput | .textareaInput {
+		.appearance{
+			input | textarea
+		}
+		[...]
+	}
+
+	***************************************/
+	.text,
+	.textarea
+	{
+		width:180px;
+		display:inline-block;
+		position:relative;
+		vertical-align: top;
+	}
+	.text input,
+	.textarea textarea
+	{
+		width:100%;
+		height:40px;
+		border-radius: 3px;
+		box-shadow: 0 0 0 1px @color-background-secondary inset;
+		color: #757575;
+		font-size: 13px;
+		line-height:14px;
+		resize: none;
+		transition-duration: .3s;
+		transition-property: height;
+		padding: 13px 20px;
+		background-color: #ffffff;
+		box-sizing:border-box;
+		vertical-align: top;
+	}
+	.textarea textarea
+	{
+		height:100%;
+	}
+	.textarea
+	{
+		transition-duration: .3s;
+		transition-property: height;
+		height:70px;
+	}
+	.text:hover input,
+	.textarea:hover textarea
+	{
+		box-shadow: 0 0 0 1px @color-background-secondary-hover inset;
+		color: #4d4d4d;
+	}
+	.text.focus input,
+	.textarea.focus textarea
+	{
+		box-shadow: 0 0 0 2px @color-background-primary inset;
+		color: #4d4d4d;
+	}
+	.text.error input,
+	.textarea.error textarea
+	{
+		box-shadow: 0 0 0 2px @color-background-error inset;
+	}
+	.text.success input,
+	.textarea.success textarea
+	{
+		box-shadow: 0 0 0 2px @color-background-success inset;
+	}
+	.text.disabled input,
+	.textarea.disabled textarea
+	{
+		background-color: #F3F3F3;
+		box-shadow: none;
+	}
+	/*
+	Icons
+	*/
+	.input.defaultIcon .text input,
+	.input.leftIcon .text input,
+	.input.defaultIcon .textarea textarea,
+	.input.leftIcon .textarea textarea
+	{
+		padding-left:40px;
+	}
+	/*
+	Captcha
+	*/
+	.text.captcha input
+	{
+		padding-right:85px;
+	}
+	.text .captcha
+	{
+		position:absolute;
+		right:0;
+		top:0;
+		height:40px;
+	}
+
+	.input.rightIcon .text input,
+	.input.rightIcon .textarea textarea
+	{
+		padding-right:40px;
+	}
+
+	.textInput .inputLabel,
+	.textareaInput .inputLabel
+	{
+		line-height:40px;
+	}
+
+	/***************************************
+
+	Styles for: RADIO & CHECKBOX
+	Element scheme:
+
+	.radioInput | .checkboxInput {
+		[...]
+		.radio | .checkbox {
+			.radioButton | .checkboxButton
+		}
+		[...]
+	}
+
+	***************************************/
+	.radio,
+	.checkbox
+	{
+		background-color: @color-background-secondary;
+		border-radius: 50%;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.25) inset;
+		cursor: pointer;
+		display: inline-block;
+		height: 24px;
+		position: relative;
+		transition: background-color .3s;
+		width: 24px;
+	}
+	.checkbox
+	{
+		border-radius:5px;
+	}
+	.radioButton,
+	.checkboxButton
+	{
+		background-color: #fff;
+		border-radius: 50%;
+		box-shadow: 0 3px 3px rgba(0,0,0,0.25);
+		height: 20px;
+		left: 50%;
+		margin-left: -10px;
+		margin-top: -10px;
+		position: absolute;
+		top: 50%;
+		transform: scale(0.75);
+		transition-duration: .3s;
+		transition-property: transform;
+		width: 20px;
+	}
+	.checkboxButton
+	{
+		border-radius:3px;
+	}
+	.radio:hover,
+	.checkbox:hover
+	{
+		background-color: @color-background-secondary-hover;
+	}
+	.radio.checked,
+	.checkbox.checked
+	{
+		background-color: @color-background-primary;
+	}
+	.radio.error,
+	.checkbox.error
+	{
+		background-color: @color-background-error;
+	}
+	.radio.success,
+	.checkbox.success
+	{
+		background-color: @color-background-success;
+	}
+	.radio.disabled,
+	.checkbox.disabled
+	{
+		box-shadow: none;
+		background-color: @color-background-secondary
+	}
+	.radio.disabled .radioButton,
+	.checkbox.disabled .checkboxButton
+	{
+		box-shadow: none;
+	}
+	.radio.active .radioButton,
+	.checkbox.active .checkboxButton,
+	.radio.focus .radioButton,
+	.checkbox.focus .checkboxButton
+	{
+		transform: scale(1);
+	}
+	.radio.checked .radioButton,
+	.checkbox.checked .checkboxButton
+	{
+		transform: scale(1);
+	}
+	.radio.active.checked .radioButton,
+	.checkbox.active.checked .checkboxButton,
+	.radio.focus.checked .radioButton,
+	.checkbox.focus.checked .checkboxButton
+	{
+		transform: scale(0.75);
+	}
+	/*
+	Settings
+	*/
+	.radioInput input,
+	.checkboxInput input
+	{
+		position:absolute;
+		left:-9999px;
+	}
+	.radioInput .inputLabel,
+	.checkboxInput .inputLabel
+	{
+		line-height:24px;
+	}
+
+	/***************************************
+
+	Styles for: SELECT
+	Element scheme:
+
+	.selectInput {
+		[...]
+		.select {
+			.selectText
+			.selectList {
+				.selectItem 
+				.selectHeader
+				.selectItem.ingroup
+			}
+		}
+		[...]
+	}
+
+	***************************************/
+	.select
+	{
+		display:inline-block;
+		border-radius:3px;
+		width:180px;
+		vertical-align: top;
+		position:relative;
+	}
+	.selectText
+	{
+		width:100%;
+		height:40px;
+		border-radius: 3px;
+		box-shadow: 0 0 0 1px @color-background-secondary inset;
+		color: #757575;
+		font-size: 13px;
+		line-height:14px;
+		padding: 13px 20px;
+		background-color: #ffffff;
+		box-sizing:border-box;
+		vertical-align: top;
+		cursor:pointer;
+	}
+	.select.multiple .selectText
+	{
+		display:none;
+	}
+	.selectList
+	{
+		width:100%;
+		height:150px;
+		overflow: auto;
+		position:relative;
+		border:solid 1px @color-background-secondary;
+		border-radius: 3px;
+		box-sizing:border-box;
+		transition-property:opacity,height;
+		transition-duration: 0.3s;
+		background-color: #fff;
+		opacity:1;
+	}
+	.select.single .selectList
+	{
+		position:absolute;
+		top:100%;
+		z-index:9999;
+	}
+	.select.single .selectItem
+	{
+		cursor:pointer;
+	}
+	.selectList.hidden
+	{
+		height:0px;
+		opacity:0;
+	}
+	.selectItem
+	{
+		padding:10px 20px;
+		line-height: 24px;
+		font-size:13px;
+		color: #6D6D6D;
+	}
+	.selectItem.disabled
+	{
+		color:#D7D7D7;
+	}
+	.selectItem.ingroup
+	{
+		padding-left:25px;
+		border-left: solid 3px #e0e0e0
+	}
+	.selectHeader
+	{
+		padding:10px 20px;
+		padding-top:20px;
+		line-height: 24px;
+		font-size:14px;
+		color: #4d4d4d;
+		text-transform: uppercase;
+	}
+	.selectItem:nth-child(2n)
+	{
+	    background-color: #F3F3F3;
+	}
+	.selectItem:hover
+	{
+		background-color: #F3F3F3;
+	}
+	.selectItem:hover:nth-child(2n)
+	{
+		background-color: #ededed;
+	}
+	.selectItem.checked
+	{
+		background-color: #e1f4ed;
+	}
+	.selectItem.checked:nth-child(2n)
+	{
+		background-color: #d5f2e7;
+	}
+	.selectItem.focus
+	{
+		background-color: @color-background-secondary;
+	}
+	.selectItem .input
+	{
+		float:right;
+		margin-right:0;
+	}
+	.select.error
+	{
+		box-shadow:0 3px 0px @color-background-error;
+	}
+	.select.success
+	{
+		box-shadow:0 3px 0px @color-background-success;
+	}
+
+	/*
+	Icons
+	*/
+	.input.defaultIcon .selectText,
+	.input.leftIcon .selectText
+	{
+		padding-left:40px;
+	}
+	.input.rightIcon .selectText
+	{
+		padding-right:40px;
+	}
+
+	/*
+	Settings
+	*/
+	.selectInput select
+	{
+		display:none;
+	}
+	.selectInput .inputLabel
+	{
+		line-height:40px;
+	}
+
+	/***************************************
+
+	Styles for: FILE INPUT
+	Element scheme:
+
+	.fileInput {
+		.file{
+			.fileText
+			.fileButton
+		}
+		[...]
+	}
+
+	***************************************/
+	.fileInput input
+	{
+		position:absolute;
+		left:-9999px;
+	}
+	.file
+	{
+		display:inline-block;
+		position:relative;
+		vertical-align: top;
+		width:180px;
+	}
+	.fileText
+	{
+		width:100%;
+		height:40px;
+		border-radius: 3px;
+		box-shadow: 0 0 0 1px @color-background-secondary inset;
+		color: #757575;
+		font-size: 13px;
+		line-height:14px;
+		padding: 13px 20px;
+		background-color: #ffffff;
+		box-sizing:border-box;
+		overflow: hidden;
+		white-space: pre;
+	}
+	.fileButton
+	{
+		position:absolute;
+		right:0;
+		top:0;
+		height:40px;
+		line-height: 40px;
+		padding:0 15px;
+		background-color: @color-background-primary;
+		transition-duration: .3s;
+		transition-property: background-color;
+		cursor:pointer;
+		color:#ffffff;
+		font-size:10px;
+		text-transform: uppercase;
+		border-radius:0 3px 3px 0;
+		font-weight:700;
+	}
+	.fileButton:hover
+	{
+		background-color: @color-background-primary-hover;
+	}
+	.file.error .fileText
+	{
+		box-shadow: 0 0 0 2px @color-background-error inset;
+	}
+	.file.error .fileButton
+	{
+		background-color: @color-background-error;
+	}
+	.file.success .fileText
+	{
+		box-shadow: 0 0 0 2px @color-background-success inset;
+	}
+	.file.success .fileButton
+	{
+		background-color: @color-background-success;
+	}
+	.file.disabled .fileText
+	{
+		background-color: #F3F3F3;
+		box-shadow: none;
+	}
+	.file.disabled .fileButton
+	{
+		background-color: @color-background-primary;
+	}
+
+	.fileInput .inputLabel
+	{
+		line-height:40px;
+	}
+
+	/***************************************
+
+	Styles for: RANGE
+	Element scheme:
+
+	.rangeInput {
+		.range{
+			.rangeLine {
+				.rangeFill
+				.rangeButton
+				?.rangeButton
+				.rangeText
+				?.rangeText
+			}
+			.fileButton
+		}
+		[...]
+	}
+
+	***************************************/
+	.range
+	{
+		box-sizing: border-box;
+		color: #9e9e9e;
+		display: inline-block;
+		font-size: 11px;
+		width: 200px;
+		padding: 0 25px;
+	}
+	.range.hiddenNumbers
+	{
+		padding: 0;
+	}
+	.rangeLine
+	{
+		background-color: #e0e0e0;
+		display: block;
+		float: left;
+		height: 3px;
+		position: relative;
+		transition-duration: .3s;
+		transition-property: background-color;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.rangeButton
+	{
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 3px 3px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.2);
+		cursor: pointer;
+		height: 21px;
+		left: 10px;
+		margin-left: -10px;
+		position: absolute;
+		top: -9px;
+		transition-duration: .3s;
+		transition-property: transform, left;
+		width: 21px;
+	}
+	.rangeFill
+	{
+		background-color: #95e5c8;
+		border-radius: 3px;
+		height: 3px;
+		transition-duration: .3s;
+		transition-property: width,margin-left;
+		width: 0;
+	}
+	.rangeText
+	{
+		bottom: 100%;
+		left: 50%;
+		margin-bottom: 22px;
+		margin-left: -50%;
+		filter: alpha(opacity=0);
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		text-align: center;
+		transition-duration: .3s;
+		transition-property: opacity, margin-bottom, left;
+		width: 100%;
+	}
+	.rangeText span
+	{
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+		padding: 7px 11px;
+	}
+	.rangeMin
+	{
+		display: block;
+		float: left;
+		left: -25px;
+		line-height: 19px;
+		margin-left: -100%;
+		position: relative;
+		text-align: left;
+		width: 25px;
+	}
+	.rangeMax
+	{
+		display: block;
+		float: left;
+		line-height: 19px;
+		margin-right: -100%;
+		position: relative;
+		text-align: right;
+		width: 25px;
+	}
+	.range.active .rangeText,
+	.range:hover .rangeText
+	{
+		margin-bottom: 20px;
+		opacity: 1;
+	}
+	.rangeButton.active
+	{
+		transform: scale(1.1);
+	}
+	.range.disabled .rangeFill
+	{
+		background-color: #CBCBCB;
+	}
+	.range.disabled .rangeButton
+	{
+		box-shadow: 0 0 0 1px #CBCBCB;
+	}
+	.range.disabled .rangeFill
+	{
+		background-color: #CBCBCB;
+	}
+	.range.error .rangeFill
+	{
+		background-color: @color-background-error;
+	}
+	.range.success .rangeFill
+	{
+		background-color: @color-background-success;
+	}
+
+	/*
+	Settings
+	*/
+	.rangeInput input
+	{
+		position:absolute;
+		left:-9999px;
+	}
+
+	/***************************************
+
+	Styles for: RATE
+	Element scheme:
+
+	.rateInput {
+		.rate{
+			span.icon.checked.active
+		}
+		[...]
+	}
+
+	***************************************/
+	.rate
+	{
+		color: @color-background-secondary;
+		font-size: 18px;
+		height: 30px;
+		line-height: 30px;
+		display:inline-block;
+		vertical-align: top;
+	}
+	.rate span
+	{
+		cursor: pointer;
+		margin-right: 5px;
+		transition-duration: .3s;
+		transition-property: color;
+	}
+	.rate .active
+	{
+		color: @color-background-secondary-hover;
+	}
+	.rate .checked
+	{
+		color:	@color-background-primary;
+	}
+	.rate .checked.active
+	{
+		color:	@color-background-primary-hover;
+	}
+	.rate.error .checked
+	{
+		color:	@color-background-error;
+	}
+	.rate.error .checked.active
+	{
+		color:	@color-background-error-hover;
+	}
+	.rate.success .checked
+	{
+		color:	@color-background-success;
+	}
+	.rate.success .checked.active
+	{
+		color:	@color-background-success-hover;
+	}
+	.rate.disabled .checked
+	{
+		color:	@color-background-secondary-hover;
+	}
+	.rate.disabled .checked.active
+	{
+		color:	@color-background-secondary-hover;
+	}
+	/*
+	Settings
+	*/
+	.rateInput input
+	{
+		position: absolute;
+		left: -9999px;
+	}
+	.rateInput .inputLabel
+	{
+		line-height:30px;
+	}
+
+	/*
+
+	Styles for: SUBMIT
+	Element scheme:
+
+	.submitInput {
+		input
+	}
+
+	*/
+	.submitInput input
+	{
+		background-color: @color-background-secondary;
+		border: 0;
+		border-radius: 3px;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		font-family: "Open Sans";
+		font-size: 13px;
+		font-weight: 600;
+		text-decoration: none;
+		margin: 0;
+		padding: 13px 35px;
+	}
+	.submitInput input:hover
+	{
+		background-color: @color-background-secondary-hover;
+	}
+}
